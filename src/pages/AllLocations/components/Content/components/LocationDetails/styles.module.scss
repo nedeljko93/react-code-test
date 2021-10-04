@@ -1,0 +1,21 @@
+@import "../../../../../../styles/variables";
+
+.listOfDetails {
+  list-style: none;
+
+  li {
+    height: 24px;
+    display: flex;
+    align-items: center;
+    opacity: 0.8;
+    font-size: $font-size-small;
+    font-family: "Lato-Regular";
+  }
+}
+
+.icon {
+  height: 14px;
+  width: 14px;
+  opacity: 0.3;
+  margin-right: 10px;
+}
