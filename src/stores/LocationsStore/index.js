@@ -17,10 +17,10 @@ class LocationsStore {
     runInAction(() => {
       if (!error && status === 200) {
         this.locations = data;
-        this.locations = this.locations.map((location) => {
-          location.views = 0;
-          return location;
-        });
+        this.locations = this.locations.map((location) => ({
+          ...location,
+          views: 0,
+        }));
       } else {
         console.log("Error!", error);
       }
