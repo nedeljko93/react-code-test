@@ -16,9 +16,9 @@ const LocationDetails = ({ location }) => {
       </li>
       <li>
         <img alt="createdAt" className={styles.icon} src={timezoneIcon} />
-        {`${moment(location.createdAt).format("HH:mm a z")} (GMT+${moment(
+        {`${moment(location.createdAt).format("HH:mm a z")} (GMT${new Date(
           location.createdAt
-        ).utcOffset()})`}
+        ).getTimezoneOffset()})`}
       </li>
       <li>
         <img alt="views" className={styles.icon} src={viewIcon} />
