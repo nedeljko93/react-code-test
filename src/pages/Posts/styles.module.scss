@@ -1,0 +1,15 @@
+@import "../../styles/variables";
+
+.searchIcon {
+  width: 24px;
+  height: 24px;
+  background: $button-green-bg;
+  padding: 10px 10px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.searchContainer {
+  width: 380px;
+  display: flex;
+}

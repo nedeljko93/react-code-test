@@ -1,0 +1,30 @@
+@import "../../styles/variables";
+
+.button {
+  display: flex;
+  align-items: center;
+  font-size: $font-size-small;
+  border-radius: 30px;
+  background-color: $button-green-bg;
+  padding: 10px 15px;
+  font-weight: bold;
+  color: $white;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.buttonIcon {
+  margin-left: 5px;
+}
+
+.cancelButton {
+  background-color: $white;
+  border: 1px solid $button-green-bg;
+  color: $button-green-bg;
+  margin-right: 10px;
+}

@@ -1,10 +1,13 @@
+import { BrowserRouter as ReactRouter } from "react-router-dom";
 import { StoreProvider } from "./stores";
-import AllLocations from "./pages/AllLocations";
+import CustomRouter from "./CustomRouter";
 
 function App() {
   return (
     <StoreProvider>
-      <AllLocations />
+      <ReactRouter>
+        <CustomRouter />
+      </ReactRouter>
     </StoreProvider>
   );
 }

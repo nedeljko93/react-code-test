@@ -1,23 +1,30 @@
 import React, { createContext, useContext } from "react";
 import { useLocalObservable } from "mobx-react";
 
-import LocationsStore from "./LocationsStore";
+import PostsStore from "./PostsStore";
+import NotificationModalStore from "./NotificationModalStore";
 
 export const StoreContext = createContext();
 
 export const StoreProvider = ({ children }) => {
-  const locationsStore = new LocationsStore();
+  const postsStore = new PostsStore();
+  const notificationModalStore = new NotificationModalStore();
 
   return (
     <StoreContext.Provider
-      value={useLocalObservable(() => ({ locationsStore }))}
+      value={useLocalObservable(() => ({ postsStore, notificationModalStore }))}
     >
       {children}
     </StoreContext.Provider>
   );
 };
 
-export const useLocation = () => {
-  const { locationsStore } = useContext(StoreContext);
-  return locationsStore;
+export const usePosts = () => {
+  const { postsStore } = useContext(StoreContext);
+  return postsStore;
+};
+
+export const useNotificationModal = () => {
+  const { notificationModalStore } = useContext(StoreContext);
+  return notificationModalStore;
 };

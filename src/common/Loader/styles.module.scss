@@ -1,0 +1,21 @@
+@import "../../styles/variables";
+
+.loaderWrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1400;
+  background: $black;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  color: $button-green-bg;
+}

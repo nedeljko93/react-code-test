@@ -1,0 +1,32 @@
+@import "../../styles/variables";
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  & :focus-visible {
+    outline: none !important;
+  }
+
+  :global(.MuiBackdrop-root:focus-visible) {
+    outline: none !important;
+  }
+}
+
+.content {
+  padding: 10px 30px;
+  border-radius: 15px;
+  background: $white;
+  font-family: "Lato-Regular";
+}
+
+.title {
+  font-size: $font-size-large;
+  font-weight: bold;
+  color: $button-green-bg;
+}
+
+.description {
+  font-size: $font-size-medium;
+}
