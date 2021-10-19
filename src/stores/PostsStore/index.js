@@ -3,10 +3,13 @@ import { fetchApi } from "../../utilities/apiUtilities";
 
 class PostsStore {
   posts = [];
-  postCopy = [];
+  filteredListCopy = [];
+  filteredList = [];
   post = { body: "", id: -1, title: "", userId: -1 };
   isSpinerVisible = false;
   searchValue = "";
+  isSearching = false;
+  pageNumber = 1;
 
   constructor() {
     makeObservable(this, {
@@ -14,12 +17,18 @@ class PostsStore {
       post: observable,
       isSpinerVisible: observable,
       searchValue: observable,
-      postCopy: observable,
+      filteredListCopy: observable,
+      pageNumber: observable,
+      filteredList: observable,
+      isSearching: observable,
       searchPosts: action,
       getPosts: action,
       getPost: action,
       resetPostObject: action,
       handleSearchTextChange: action,
+      deletePost: action,
+      changePageNumber: action,
+      setFiltredList: action,
     });
   }
 
@@ -66,7 +75,7 @@ class PostsStore {
     });
     runInAction(() => {
       this.isSpinerVisible = false;
-      if (error && status !== 200) {
+      if (error && status !== 201) {
         console.log("Error!", error);
       }
     });
@@ -89,19 +98,47 @@ class PostsStore {
     return { status, error };
   };
 
+  deletePost = async (id) => {
+    this.isSpinerVisible = true;
+    const { status, error } = await fetchApi({
+      path: `/posts/${id}`,
+      method: "DELETE",
+    });
+    runInAction(() => {
+      this.isSpinerVisible = false;
+      if (error && status !== 200) {
+        console.log("Error!", error);
+      }
+    });
+    return { status, error };
+  };
+
   searchPosts = (filter) => {
     if (filter && filter !== "") {
-      this.posts = this.postCopy.filter((s) =>
+      this.isSearching = true;
+      this.filteredList = this.filteredListCopy.filter((s) =>
         s.title.toLowerCase().includes(filter.toLowerCase())
       );
     } else {
-      this.posts = this.postCopy;
+      this.isSearching = false;
+      this.filteredList = this.filteredList = this.filteredListCopy;
     }
   };
 
   handleSearchTextChange = (value) => {
     this.searchValue = value;
     this.searchPosts(this.searchValue);
+  };
+
+  changePageNumber = () => {
+    let tempPageNumber = this.pageNumber;
+    tempPageNumber = tempPageNumber + 1;
+    this.pageNumber = tempPageNumber;
+  };
+
+  setFiltredList = (list) => {
+    this.filteredList = list;
+    this.filteredListCopy = list;
   };
 
   resetPostObject = () => {

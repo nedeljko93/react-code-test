@@ -1,11 +1,28 @@
 @import "../../../styles/variables";
+@import "../../../styles/breakpoints";
 
-.headerContainer {
-  border-bottom: 1px solid $header-border;
-  padding: 19px 30px 21px 30px;
+.headerWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: $white;
+  z-index: 1;
+}
+
+.contentWrapper {
+  width: auto;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid $header-border;
+  padding: 20px;
+  background-color: $white;
   align-items: center;
+
+  @include small-down {
+    display: block;
+  }
 }
 
 .topPar {
@@ -20,4 +37,8 @@
   opacity: 0.8;
   color: $font-color-primary;
   font-family: "Lato-Regular";
+
+  @include small-down {
+    text-align: center;
+  }
 }

@@ -1,25 +1,22 @@
-@import "../../styles/variables";
 @import "../../styles/common";
-@import "../../styles/breakpoints";
 
-.inputWrapper {
+.textAreaWrapper {
   @extend %inputWrapper;
-}
-
-.input {
-  @extend %input;
-}
-
-.errorMessage {
-  @extend %errorMessage;
 }
 
 .label {
   @extend %label;
 }
 
-.withOutPadding {
-  padding-bottom: 0px;
+.input {
+  @extend %input;
+  min-height: 100px;
+  overflow-y: unset;
+  height: auto;
+}
+
+.errorMessage {
+  @extend %errorMessage;
 }
 
 .editInput {

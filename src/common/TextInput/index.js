@@ -4,11 +4,11 @@ import cc from "classcat";
 import styles from "./styles.module.scss";
 
 const TextInput = ({
-  label,
-  isEdit,
   errorMessage,
-  touched,
+  isEdit,
   isSearch = false,
+  label,
+  touched,
   ...props
 }) => {
   return (
@@ -21,7 +21,7 @@ const TextInput = ({
       <label>
         {!isSearch && <p className={styles.label}>{label}</p>}
         <input
-          className={cc([styles.textInput, { [styles.editTextInput]: isEdit }])}
+          className={cc([styles.input, { [styles.editInput]: isEdit }])}
           {...props}
         />
       </label>

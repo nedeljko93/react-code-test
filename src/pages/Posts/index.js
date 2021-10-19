@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router";
 import { observer } from "mobx-react-lite";
 
@@ -8,8 +8,8 @@ import Button from "../../common/Button";
 import Content from "./components/Content";
 import Header from "../commonComponents/Header";
 import TextInput from "../../common/TextInput";
-import styles from "./styles.module.scss";
 import { usePosts } from "../../stores";
+import styles from "./styles.module.scss";
 
 const Posts = () => {
   const history = useHistory();
@@ -19,7 +19,7 @@ const Posts = () => {
     <>
       <Header title="Posts">
         <div className={styles.searchContainer}>
-          <img className={styles.searchIcon} src={searchIcon} />
+          <img alt="search" className={styles.searchIcon} src={searchIcon} />
 
           <TextInput
             isSearch={true}

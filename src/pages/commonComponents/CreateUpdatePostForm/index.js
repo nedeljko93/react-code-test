@@ -1,12 +1,14 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
+import { useFormikContext } from "formik";
 
 import TextInput from "../../../common/TextInput";
+import TextArea from "../../../common/TextArea";
 import styles from "./styles.module.scss";
-import { useFormikContext } from "formik";
 
 const CreateUpdatePostForm = ({ isEdit = false }) => {
   const { errors, handleChange, touched, values } = useFormikContext();
+
   return (
     <div className={styles.formWrapper}>
       <TextInput
@@ -20,7 +22,7 @@ const CreateUpdatePostForm = ({ isEdit = false }) => {
           handleChange(event);
         }}
       />
-      <TextInput
+      <TextArea
         isEdit={isEdit}
         touched={touched.body}
         errorMessage={errors.body}

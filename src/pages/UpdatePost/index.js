@@ -8,8 +8,8 @@ import Button from "../../common/Button";
 import Header from "../commonComponents/Header";
 import CreateUpdatePostForm from "../commonComponents/CreateUpdatePostForm";
 import { useNotificationModal, usePosts } from "../../stores";
-import styles from "./styles.module.scss";
 import { PostSchema } from "../commonComponents/CreateUpdatePostForm/PostSchema";
+import styles from "./styles.module.scss";
 
 const UpdatePost = () => {
   const history = useHistory();

@@ -1,7 +1,9 @@
 @import "../../styles/variables";
+@import "../../styles/breakpoints";
 
 .button {
   display: flex;
+  justify-content: center;
   align-items: center;
   font-size: $font-size-small;
   border-radius: 30px;
@@ -15,6 +17,9 @@
 
   &:hover {
     opacity: 0.8;
+  }
+  @include small-down {
+    width: 100%;
   }
 }
 

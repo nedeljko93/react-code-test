@@ -10,7 +10,7 @@ const Button = ({ title, icon, isCancel, ...props }) => {
       {...props}
     >
       {title}
-      {icon && <img className={styles.buttonIcon} src={icon} />}
+      {icon && <img alt="" className={styles.buttonIcon} src={icon} />}
     </button>
   );
 };
