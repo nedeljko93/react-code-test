@@ -6,7 +6,7 @@
   align-items: center;
   font-size: $font-size-small;
   border-radius: 30px;
-  background-color: $button-green-bg;
+  background-color: $green;
   padding: 10px 15px;
   font-weight: bold;
   color: $white;
@@ -28,7 +28,7 @@
 
 .cancelButton {
   background-color: $white;
-  border: 1px solid $button-green-bg;
-  color: $button-green-bg;
+  border: 1px solid $green;
+  color: $green;
   margin-right: 10px;
 }

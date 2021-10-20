@@ -13,7 +13,7 @@
 %input {
   width: 100%;
   font-size: $font-size-medium;
-  border: 2px solid $button-green-bg;
+  border: 2px solid $green;
   border-radius: 25px;
   padding: 10px 20px;
   color: $black;
@@ -38,7 +38,7 @@
   border-radius: 0;
   padding-right: 30px;
   padding-left: 0px;
-  border-bottom: 1px solid $button-green-bg;
+  border-bottom: 1px solid $green;
   background-image: url(../assets/images/edit-input.svg);
   background-position: 100% 50%;
   background-repeat: no-repeat;

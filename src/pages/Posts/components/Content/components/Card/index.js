@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
+import cc from "classcat";
 
 import arrowDownIcon from "../../../../../../assets/images/arrow-down-white.svg";
 import arrowUpIcon from "../../../../../../assets/images/arrow-up-white.svg";
@@ -12,17 +13,18 @@ import styles from "./styles.module.scss";
 const Card = ({ post, onCardClickHandler, reference }) => {
   const history = useHistory();
 
-  const { deletePost } = usePosts();
+  const { deletePost, setNeedsReload } = usePosts();
   const { showDialog } = useNotificationModal();
 
   const [isBodyVisible, setIsBodyVisible] = useState(false);
   const [isDeleteDialogVisible, setIsDeleteDialogVisible] = useState(false);
 
   const handleConfirm = () => {
+    setIsDeleteDialogVisible(false);
     deletePost(post.id).then((resp) => {
-      setIsDeleteDialogVisible(false);
       if (!resp.error) {
         showDialog("Notification", "Post deleted successfully!");
+        setNeedsReload(true);
       }
     });
   };
@@ -51,7 +53,12 @@ const Card = ({ post, onCardClickHandler, reference }) => {
         />
       </div>
       <h3 className={styles.header}>{post.title}</h3>
-      {isBodyVisible && <p className={styles.body}>{post.body}</p>}
+
+      <p
+        className={cc([styles.bodyInvisible, { [styles.body]: isBodyVisible }])}
+      >
+        {post.body}
+      </p>
 
       <DialogWithButtons
         isOpen={isDeleteDialogVisible}

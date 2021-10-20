@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+# Posts CRUD application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An application includes all CRUD (Create, Read, Update and Delete) functionality for the post. The application has three pages. The posts page is where all posts are displayed with a search bar and lazy load of the data (list of posts). If the user wanna delete or edit some post he needs to hover over that particular post and then the bar with three icons will be visible. The first icon will redirect the user to the UpdatePost page. The second is for deleting the post, dialog with buttons is added for double-checking if the user wants to delete the post. The third one is for displaying the body of the post. Add post page is where users can add a new post. I also added the notification modal if the post is successfully created. Update post is where users can update the post and it also includes notification modal. Add post and edit post have the same form for their functionality. Both of the pages have Formik validation. Every API call will trigger the spinner and the spinner will be visible until the API call is executed.
 
-## Available Scripts
+Application has two Mobix stores. One is for posts and the other is for notification modal. Fetch api is function for handling all API requests with Axios library. In the common folder are all components that are or maybe will be used in multiple places. The custom router is where all paths to the pages are defined. The Pages folder also have common components folder for shared components between pages. Hooks contains function for mockup the pagination of the list of posts.
 
-In the project directory, you can run:
+## Installation and Setup Instructions
 
-### `npm start`
+### Example:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Clone down this repository. You will need node and npm installed globally on your machine.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2. Installation:
+   npm install
 
-### `npm test`
+3. To Start Server:
+   npm start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Credits
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Nedeljko Avramovic
+ln: https://www.linkedin.com/in/nedeljko-avramovi%C4%87-ba9095138/

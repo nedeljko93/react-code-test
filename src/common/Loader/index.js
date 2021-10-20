@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 const Loader = () => {
   return (
     <div className={styles.loaderWrapper}>
-      <CircularProgress className={styles.loader} />
+      <CircularProgress />
     </div>
   );
 };

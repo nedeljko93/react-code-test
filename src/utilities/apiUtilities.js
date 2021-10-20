@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const BASE_URL = "http://jsonplaceholder.typicode.com";
 
-export async function fetchApi({ path, method, bodyData = {} }) {
+export async function UseFetchApi({ path, method, bodyData = {} }) {
   let status;
   let data;
   let error = "";

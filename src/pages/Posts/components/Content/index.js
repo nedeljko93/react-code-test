@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import { observer } from "mobx-react-lite";
 
 import Card from "./components/Card";
-import UseConvertPostListToSmallerList from "../../../../hooks/UseConvertPostListToSmallerList";
+import UseTransformPostListToSmallerList from "../../../../hooks/UseTransformPostListToSmallerList";
 import { usePosts } from "../../../../stores";
 import styles from "./styles.module.scss";
 
@@ -12,15 +12,17 @@ const Content = () => {
     filteredList,
     getPosts,
     isSearching,
+    needsReload,
     pageNumber,
     posts,
     setFiltredList,
+    setNeedsReload,
   } = usePosts();
 
   const [hasMore, setHasMore] = useState(true);
   const obs = useRef();
 
-  const lastBookElementRef = useCallback(
+  const lastPostElement = useCallback(
     (node) => {
       if (obs.current) {
         obs.current.disconnect();
@@ -41,13 +43,20 @@ const Content = () => {
   );
 
   const getPage = () => {
-    const { newList } = UseConvertPostListToSmallerList(pageNumber, 30, posts);
+    const { newList } = UseTransformPostListToSmallerList(
+      pageNumber,
+      30,
+      posts
+    );
     setFiltredList(newList);
   };
 
   useEffect(() => {
-    getPosts();
-  }, [getPosts]);
+    if (needsReload) {
+      setNeedsReload(false);
+      getPosts();
+    }
+  }, [getPosts, needsReload]);
 
   useEffect(() => {
     if (pageNumber === 1) {
@@ -71,7 +80,7 @@ const Content = () => {
           return (
             <Card
               key={post.id}
-              reference={lastBookElementRef}
+              reference={lastPostElement}
               post={post}
               onCardClickHandler={() => true}
             />

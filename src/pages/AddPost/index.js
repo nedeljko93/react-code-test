@@ -32,7 +32,7 @@ const AddPost = () => {
     () => () => {
       resetPostObject();
     },
-    []
+    [resetPostObject]
   );
   return (
     <Formik

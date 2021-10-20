@@ -1,5 +1,5 @@
 import { makeObservable, observable, action, runInAction } from "mobx";
-import { fetchApi } from "../../utilities/apiUtilities";
+import { UseFetchApi } from "../../utilities/apiUtilities";
 
 class PostsStore {
   posts = [];
@@ -10,6 +10,7 @@ class PostsStore {
   searchValue = "";
   isSearching = false;
   pageNumber = 1;
+  needsReload = true;
 
   constructor() {
     makeObservable(this, {
@@ -21,20 +22,24 @@ class PostsStore {
       pageNumber: observable,
       filteredList: observable,
       isSearching: observable,
+      needsReload: observable,
       searchPosts: action,
       getPosts: action,
       getPost: action,
+      savePost: action,
+      updatePost: action,
       resetPostObject: action,
       handleSearchTextChange: action,
       deletePost: action,
       changePageNumber: action,
       setFiltredList: action,
+      setNeedsReload: action,
     });
   }
 
   getPosts = async () => {
     this.isSpinerVisible = true;
-    const { data, error, status } = await fetchApi({
+    const { data, error, status } = await UseFetchApi({
       path: "/posts",
       method: "GET",
     });
@@ -52,7 +57,7 @@ class PostsStore {
 
   getPost = async (id) => {
     this.isSpinerVisible = true;
-    const { data, error, status } = await fetchApi({
+    const { data, error, status } = await UseFetchApi({
       path: `/posts/${id}`,
       method: "GET",
     });
@@ -68,7 +73,7 @@ class PostsStore {
 
   savePost = async (post) => {
     this.isSpinerVisible = true;
-    const { status, error } = await fetchApi({
+    const { status, error } = await UseFetchApi({
       path: "/posts",
       method: "POST",
       bodyData: post,
@@ -84,7 +89,7 @@ class PostsStore {
 
   updatePost = async (post) => {
     this.isSpinerVisible = true;
-    const { status, error } = await fetchApi({
+    const { status, error } = await UseFetchApi({
       path: `/posts/${post.id}`,
       method: "PUT",
       bodyData: post,
@@ -100,7 +105,7 @@ class PostsStore {
 
   deletePost = async (id) => {
     this.isSpinerVisible = true;
-    const { status, error } = await fetchApi({
+    const { status, error } = await UseFetchApi({
       path: `/posts/${id}`,
       method: "DELETE",
     });
@@ -139,6 +144,10 @@ class PostsStore {
   setFiltredList = (list) => {
     this.filteredList = list;
     this.filteredListCopy = list;
+  };
+
+  setNeedsReload = (needsReload) => {
+    this.needsReload = needsReload;
   };
 
   resetPostObject = () => {

@@ -1,4 +1,4 @@
-const UseConvertPostListToSmallerList = (pageNumber, pageSize, list) => {
+const UseTransformPostListToSmallerList = (pageNumber, pageSize, list) => {
   const newList = list.filter((value, index) => {
     if (pageNumber * pageSize > index) {
       return value;
@@ -7,4 +7,4 @@ const UseConvertPostListToSmallerList = (pageNumber, pageSize, list) => {
   return { newList };
 };
 
-export default UseConvertPostListToSmallerList;
+export default UseTransformPostListToSmallerList;

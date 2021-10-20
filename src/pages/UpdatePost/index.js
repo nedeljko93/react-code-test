@@ -39,7 +39,7 @@ const UpdatePost = () => {
     return () => {
       resetPostObject();
     };
-  }, []);
+  }, [getPost, postId, resetPostObject]);
 
   return (
     <Formik

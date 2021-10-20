@@ -1,6 +1,6 @@
 import { BrowserRouter as ReactRouter } from "react-router-dom";
 import { StoreProvider } from "./stores";
-import CustomRouter from "./CustomRouter";
+import CustomRouter from "./routes/CustomRouter";
 
 function App() {
   return (

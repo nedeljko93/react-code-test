@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Modal } from "@material-ui/core";
+import { Modal, Fade } from "@material-ui/core";
 import { observer } from "mobx-react-lite";
 
 import { useNotificationModal } from "../../stores";
@@ -23,14 +23,16 @@ const NotificationModal = () => {
         closeDialog();
       }, 1500);
     }
-  }, [isOpen]);
+  }, [isOpen, callback, closeDialog]);
 
   return (
     <Modal className={styles.modal} onClose={closeDialog} open={isOpen}>
-      <div className={styles.content}>
-        <p className={styles.title}>{title}</p>
-        <p className={styles.description}>{description}</p>
-      </div>
+      <Fade in={isOpen}>
+        <div className={styles.content}>
+          <p className={styles.title}>{title}</p>
+          <p className={styles.description}>{description}</p>
+        </div>
+      </Fade>
     </Modal>
   );
 };

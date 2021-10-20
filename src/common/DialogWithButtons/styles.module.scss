@@ -24,11 +24,11 @@
 .title {
   font-size: $font-size-large;
   font-weight: bold;
-  color: $button-green-bg;
+  color: $green;
 }
 
 .buttonWrapper {
   margin-top: 20px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
