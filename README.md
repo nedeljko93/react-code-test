@@ -8,19 +8,19 @@ Application has two Mobix stores. One is for posts and the other is for notifica
 
 ### Example:
 
-1. Clone down this repository. You will need node and npm installed globally on your machine:
-   git clone https://github.com/nedeljko93/react-code-test.git
+1. Clone down this repository. You will need node and npm installed globally on your machine:\
+  **git clone https://github.com/nedeljko93/react-code-test.git**
 
-2. Jump into react-code-test folder:
-   cd react-code-test
+2. Jump into react-code-test folder:\
+**cd react-code-test**
 
-3. Install all libraries:
-   npm install
+3. Install all libraries:\
+**npm install**
 
-4. Start Server:
-   npm start
+4. Start Server:\
+ **npm start**
 
 ## Credits
 
-Nedeljko Avramovic
+Nedeljko Avramovic\
 ln: https://www.linkedin.com/in/nedeljko-avramovi%C4%87-ba9095138/
